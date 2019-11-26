@@ -4,14 +4,14 @@
 
 const assertEqual = function(actual, expected) {
   let assertMsg = '';
-  const actualStr = typeof actual === 'string' ? '"' + actual + '"' : actual;
-  const expectedStr = typeof expected === 'string' ? '"' + expected + '"' : expected;
+  const actualStr = typeof actual === 'string' ? `"${actual}"` : actual;
+  const expectedStr = typeof expected === 'string' ? `"${expected}"` : expected;
 
 
   if (actual === expected) {
-    assertMsg = '✔️ ✔️ ✔️ Assertion Passed: ' + actualStr + ' === ' + expectedStr;
+    assertMsg = `✔️ ✔️ ✔️ Assertion Passed: ${actualStr} === ${expectedStr}`;
   } else {
-    assertMsg = '❌️❌️❌️Assertion Failed: ' + actualStr + ' === ' + expectedStr;
+    assertMsg = `❌️❌️❌️Assertion Failed: ${actualStr} === ${expectedStr}`;
   }
   console.log(assertMsg);
 };
