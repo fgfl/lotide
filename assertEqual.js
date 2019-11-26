@@ -4,9 +4,32 @@
 
 const assertEqual = function(actual, expected) {
   let assertMsg = '';
-  const actualStr = typeof actual === 'string' ? `"${actual}"` : actual;
-  const expectedStr = typeof expected === 'string' ? `"${expected}"` : expected;
+  let actualStr;
+  let expectedStr;
 
+  switch (typeof actual) {
+    case 'string':
+      actualStr = `"${actual}"`
+      break;
+    default:
+      if (Array.isArray(actual)) {
+        actualStr = `[${actual}]`
+      } else {
+        actualStr = actual;
+      }
+  }
+
+  switch (typeof expected) {
+    case 'string':
+      expectedStr = `"${expected}"`
+      break;
+    default:
+      if (Array.isArray(expected)) {
+        expectedStr = `[${expected}]`
+      } else {
+        expectedStr = expected;
+      }
+  }
 
   if (actual === expected) {
     assertMsg = `✔️ ✔️ ✔️ Assertion Passed: ${actualStr} === ${expectedStr}`;
