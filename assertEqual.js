@@ -1,5 +1,5 @@
 /*Nov 25, 2019
-  Frederick LEe
+  Frederick Lee
 */
 
 const assertEqual = function(actual, expected) {
