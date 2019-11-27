@@ -49,9 +49,8 @@ const eqArrays = function(actualArray, expectedArray) {
 
   if (actualArray.length !== expectedArray.length) {
     isEqual = false;
-  } else if (actualArray.length === 0) {
-    // loop won't run for empty array b/c length is 0, so we have a special case for empty arrrays
   } else {
+    // loop won't run for empty array b/c length is 0
     for (let i = 0; i < actualArray.length; ++i) {
       if (actualArray[i] !== expectedArray[i]) {
         isEqual = false;
