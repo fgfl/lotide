@@ -44,6 +44,9 @@ const assertEqual = function(actual, expected) {
   return isEqual;
 };
 
+
+// checks if two arrays are the same.
+// return: true if same. false otherwise
 const eqArrays = function(actualArray, expectedArray) {
   let isEqual = true;
 
