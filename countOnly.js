@@ -42,20 +42,6 @@ const assertEqual = function(actual, expected) {
   return isEqual;
 };
 
-// val: value to count
-// source: array we are searching through
-// return: number of times val is found in the array
-const countInArray = function(val, source) {
-  let count = 0;
-
-  source.forEach(elm => {
-    if (elm === val) {
-      count++;
-    }
-  });
-  return count;
-};
-
 // Counts the number of specified items.
 // If key is not in allItems, it does not get added to the return object
 // allItems: an array of strings that we need to look through
@@ -67,12 +53,9 @@ const countOnly = function(allItems, itemsToCount) {
   // store in new object
   const returnObj = {};
 
-  for (const key in itemsToCount) {
-    if (key) {
-      const count = countInArray(key, allItems);
-      if (count) {
-        returnObj[key] = count;
-      }
+  for (const item of allItems) {
+    if (itemsToCount[item]) {
+      returnObj[item] = returnObj[item] ? returnObj[item] + 1 : 1;
     }
   }
   return returnObj;
@@ -97,3 +80,9 @@ const result1 = countOnly(firstNames, {'Jason': true, 'Karima': true, 'Fang': tr
 assertEqual(result1['Jason'], 1);
 assertEqual(result1['Karima'], undefined);
 assertEqual(result1['Fang'], 2);
+
+const empty = [];
+const result2 = countOnly(empty, {'test': true, 'other': false, '': true});
+assertEqual(result2['test'], undefined);
+assertEqual(result2['other'], undefined);
+assertEqual(result2[''], undefined);
