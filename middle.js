@@ -58,6 +58,7 @@ const middle = function(array) {
   }
 
   middleArray.push(array[indexMiddle]);
+  // if even need to add the second number
   if (array.length % 2 === 0) {
     middleArray.push(array[indexMiddle + 1]);
   }
@@ -71,3 +72,4 @@ assertArraysEqual(middle([1, 2, 3]), [2]);
 assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
 assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
 assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
+assertArraysEqual(middle([1, 'test', 3]), ['test']);
