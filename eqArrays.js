@@ -10,8 +10,8 @@ const assertEqual = function(actual, expected) {
   let isEqual;
 
   // Enclosed the string with the appropriate wrappers "" or []
-  function makeEnclosedString(string) {
-    let output = ''
+  const makeEnclosedString = function(string) {
+    let output = '';
     switch (typeof string) {
     case 'string':
       output = `"${string}"`;
@@ -24,7 +24,7 @@ const assertEqual = function(actual, expected) {
       }
     }
     return output;
-  }
+  };
 
   actualStr = makeEnclosedString(actual);
   expectedStr = makeEnclosedString(expected);
