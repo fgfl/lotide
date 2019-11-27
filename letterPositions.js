@@ -45,18 +45,15 @@ const letterPositions = function(sentence) {
 
   sentence = sentence.toLowerCase();
 
-  for (const char of sentence) {
-    // console.log(`-- ${char}`);
-    if (results[char]) {
-      const lastElmOfChar = results[char][results[char].length -1];
-      // console.log(`last elm of char: ${lastElmOfChar}`);
-      // console.log(`array length: ${results[char].length}. index of next char to add: ${sentence.indexOf(char, lastElmOfChar + 1)}`);
-      results[char].push(sentence.indexOf(char, lastElmOfChar + 1));
-    } else {
-      results[char] = [];
-      results[char].push(sentence.indexOf(char));
+  for (const [index, char] of sentence.split('').entries()) {
+    if (char === ' ') {
+      // skipping spaces
+      continue;
     }
-    // console.log(results[char]);
+    if (!results[char]) {
+      results[char] = [];
+    }
+    results[char].push(index);
   }
 
   return results;
