@@ -8,29 +8,25 @@ const assertEqual = function(actual, expected) {
   let expectedStr;
   let isEqual;
 
-  switch (typeof actual) {
-  case 'string':
-    actualStr = `"${actual}"`;
-    break;
-  default:
-    if (Array.isArray(actual)) {
-      actualStr = `[${actual}]`;
-    } else {
-      actualStr = actual;
+  // Enclosed the string with the appropriate wrappers "" or []
+  function makeEnclosedString(string) {
+    let output = ''
+    switch (typeof string) {
+    case 'string':
+      output = `"${string}"`;
+      break;
+    default:
+      if (Array.isArray(string)) {
+        output = `[${string}]`;
+      } else {
+        output = string;
+      }
     }
+    return output;
   }
 
-  switch (typeof expected) {
-  case 'string':
-    expectedStr = `"${expected}"`;
-    break;
-  default:
-    if (Array.isArray(expected)) {
-      expectedStr = `[${expected}]`;
-    } else {
-      expectedStr = expected;
-    }
-  }
+  actualStr = makeEnclosedString(actual);
+  expectedStr = makeEnclosedString(expected);
 
   if (actual === expected) {
     assertMsg = `✔️ ✔️ ✔️ Assertion Passed: ${actualStr} === ${expectedStr}`;
