@@ -39,8 +39,14 @@ const assertEqual = function(actual, expected) {
   return isEqual;
 };
 
-const countLetters = function() {
+const countLetters = function(str) {
+  const output = {};
 
+  str = str.toLowerCase().split(' ').join('');
+  for (const char of str) {
+    output[char] = output[char] ? output[char] + 1 : 1;
+  }
+  return output;
 };
 
 
@@ -58,3 +64,15 @@ assertEqual(result['u'], 2);
 assertEqual(result['s'], 2);
 assertEqual(result['e'], 3);
 assertEqual(result['n'], 1);
+
+const empty = '';
+const result2 = countLetters(empty);
+assertEqual(result2['t'], undefined);
+
+const numString = '12345555554';
+const result3 = countLetters(numString);
+assertEqual(result3['1'], 1);
+assertEqual(result3['2'], 1);
+assertEqual(result3['3'], 1);
+assertEqual(result3['4'], 2);
+assertEqual(result3['5'], 6);
