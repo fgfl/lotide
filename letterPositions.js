@@ -43,6 +43,19 @@ const assertArraysEqual = function(actual, expected) {
 const letterPositions = function(sentence) {
   const results = {};
 
+  sentence = sentence.toLowerCase().split(' ').join('');
+  for (const char of sentence) {
+    if (results[char]) {
+      const lastElmOfChar = results[char][results[char].length -1]
+      results[char].push(sentence.indexOf(char, lastElmOfChar));
+    } else {
+      results[char] = [];
+      results[char].push(sentence.indexOf(char));
+    }
+    console.log(char);
+    console.log(results[char]);
+  }
+
   return results;
 };
 
