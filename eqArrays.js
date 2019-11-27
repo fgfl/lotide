@@ -7,6 +7,7 @@ const assertEqual = function(actual, expected) {
   let assertMsg = '';
   let actualStr;
   let expectedStr;
+  let isEqual;
 
   switch (typeof actual) {
   case 'string':
@@ -34,13 +35,16 @@ const assertEqual = function(actual, expected) {
 
   if (actual === expected) {
     assertMsg = `✔️ ✔️ ✔️ Assertion Passed: ${actualStr} === ${expectedStr}`;
+    isEqual = true;
   } else {
     assertMsg = `❌️❌️❌️Assertion Failed: ${actualStr} === ${expectedStr}`;
+    isEqual = false;
   }
   console.log(assertMsg);
+  return isEqual;
 };
 
-const eqArrays = function(acutal, expected) {
+const eqArrays = function(actualArray, expectedArray) {
   let isEqual = true;
 
   if (actualArray.length !== expectedArray.length) {
@@ -49,7 +53,7 @@ const eqArrays = function(acutal, expected) {
     // loop won't run for empty array b/c length is 0, so we have a special case for empty arrrays
   } else {
     for (let i = 0; i < actualArray.length; ++i) {
-      if (!assertEqual(actualArray[i], expectedArray[i])) {
+      if (actualArray[i] !== expectedArray[i]) {
         isEqual = false;
         break;
       }
@@ -65,3 +69,7 @@ assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
 
 assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);
 assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
+
+assertEqual(eqArrays([], []), true);
+assertEqual(eqArrays([], [1]), false);
+assertEqual(eqArrays(['e'], []), false);
