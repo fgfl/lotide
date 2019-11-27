@@ -76,3 +76,11 @@ assertArraysEqual(result['u'], [7, 20]);
 assertArraysEqual(result['s'], [8, 21]);
 assertArraysEqual(result['e'], [9, 16, 22]);
 assertArraysEqual(result['n'], [12]);
+
+const ownSentence = 'hello';
+const result2 = letterPositions(ownSentence);
+
+assertArraysEqual(result2.h, [0]);
+assertArraysEqual(result2.e, [1]);
+assertArraysEqual(result2.l, [2, 3]);
+assertArraysEqual(result2.o, [4]);
