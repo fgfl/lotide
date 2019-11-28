@@ -51,14 +51,13 @@ const assertEqual = function(actual, expected) {
 // return: first key found that contains val. undefined if not found;
 const findKeyByValue = function(obj, val) {
   let returnKey = '';
-
   const keys = Object.keys(obj);
   const values = Object.values(obj);
-  const keyValPairs = Object.entries(obj);
-  console.log(keys);
-  console.log(values);
-  console.log(keyValPairs);
-  console.log(values.includes(val));
+  const index = values.indexOf(val);
+
+  if (index !== -1) {
+    returnKey = keys[index];
+  }
   return returnKey ? returnKey : undefined;
 };
 
@@ -71,3 +70,13 @@ const bestTVShowsByGenre = {
 
 assertEqual(findKeyByValue(bestTVShowsByGenre, "The Wire"), "drama");
 assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);
+
+const emptyObj = {};
+assertEqual(findKeyByValue(emptyObj, 'anything'), undefined);
+
+const numOjb = {
+  one: 1,
+  two: 2,
+  three: 45
+};
+assertEqual(findKeyByValue(numOjb, 1), 'one');
