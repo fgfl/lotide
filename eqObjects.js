@@ -68,7 +68,7 @@ const eqObjects = function(object1, object2) {
   } 
 
   for (const [obj1Key, obj1Value] of obj1KeyVals) {
-    if(Array.isArray(obj1Value)) {
+    if(Array.isArray(obj1Value) && Array.isArray(object2[obj1Key])) {
       if(!eqArrays(obj1Value, object2[obj1Key])) {
         isEqual = false;
         break;
