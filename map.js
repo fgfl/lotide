@@ -75,7 +75,7 @@ assertArraysEqual(result3, [0.5, 1, 2, 2.5, 3.5, 5]);
 
 const findLength = function(word) {
   return word.length;
-}
+};
 const result4 = map(words, findLength);
 assertArraysEqual(result4, [6, 7, 2, 5, 3, 0, undefined]);
 
