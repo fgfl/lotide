@@ -17,14 +17,12 @@ const map = function(array, callback) {
   // console.log('array: ', array);
   // console.log('callback: ', callback);
   for (const item of array) {
-    console.log('item BEFORE: ', item);
-    console.log('item AFTER: ', callback(item));
-    console.log('---');
+    result.push(callback(item));
   }
   return result;
 };
 
-const words = ["ground", "control", "to", "major", "tom"];
+const words = ["ground", "control", "to", "major", "tom", ''];
 const result1 = map(words, word => word[0]);
 
 console.log(result1);
