@@ -11,8 +11,17 @@ Our map function will take in two arguments:
 The map function will return a new array based on the results of the callback function.
 */
 
-const map = function() {
+const map = function(array, callback) {
+  const result = [];
 
+  // console.log('array: ', array);
+  // console.log('callback: ', callback);
+  for (const item of array) {
+    console.log('item BEFORE: ', item);
+    console.log('item AFTER: ', callback(item));
+    console.log('---');
+  }
+  return result;
 };
 
 const words = ["ground", "control", "to", "major", "tom"];
