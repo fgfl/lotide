@@ -58,6 +58,8 @@ const eqArrays = function(actualArray, expectedArray) {
   return isEqual;
 };
 
+// does not handle objects inside objects right now
+// returns true if both object1 and object2 are equal
 const eqObjects = function(object1, object2) {
   let isEqual = true;
   const obj1KeyVals = Object.entries(object1);
