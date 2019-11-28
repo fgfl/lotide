@@ -51,7 +51,7 @@ const without = function(source, itemsToRemove) {
     if (!itemsToRemove.includes(elm)) {
       filteredArray.push(elm);
     }
-  })
+  });
   return filteredArray;
 };
 

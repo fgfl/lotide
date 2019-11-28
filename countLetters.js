@@ -52,7 +52,7 @@ const countLetters = function(str) {
 
 // TEST CODE
 const input = 'Lighthouse in the house';
-result = countLetters(input);
+const result = countLetters(input);
 
 assertEqual(result['l'], 1);
 assertEqual(result['i'], 2);
