@@ -45,21 +45,33 @@ const assertEqual = function(actual, expected) {
 
 // takes in an object and a callback.
 // obj: object to search
-// stopSearch: callback function to determine when to stop. Stop if true
-// return: first key found
+// stopSearch: callback function to determine when to stop. Stop if true.
+// return: first key found 
 const findKey = function(obj, stopSearch) {
   let retKey;
+  const objKeys = Object.keys(obj);
 
+  for (const key of objKeys) {
+    if (stopSearch(obj[key])) {
+      retKey = key;
+      break;
+    }
+  }
   return retKey;
 }
 
-
-assertEqual(findKey({
+// TEST CASES
+const hotels = {
   "Blue Hill": { stars: 1 },
   "Akaleri":   { stars: 3 },
   "noma":      { stars: 2 },
   "elBulli":   { stars: 3 },
   "Ora":       { stars: 2 },
   "Akelarre":  { stars: 3 }
-}, x => x.stars === 2),  "noma");
+};
 
+// found case
+assertEqual(findKey(hotels, x => x.stars === 2),  "noma");
+
+// not found case
+assertEqual(findKey(hotels, x => x.stars > 4),  undefined);
