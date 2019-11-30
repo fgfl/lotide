@@ -3,6 +3,7 @@
 
 */
 const {assertEqual} = require('./assertEqual');
+//const {eqObjects} = require('./eqObjects');
 
 // checks if the variable is an non-null object or not
 // returns: true if it's an non-null object
@@ -21,8 +22,9 @@ const eqArrays = function(actualArray, expectedArray) {
     for ([i, item] of actualArray.entries()) {
       if (Array.isArray(item)) {
         isEqual = eqArrays(item, expectedArray[i]);
-      } else if (isNonNullObject(item) && isNonNullObject(expectedArray[i])) {
-
+      // DO NOT CHECK FOR OBJECT RIGHT NOW. LET IT FAIL
+      // } else if (isNonNullObject(item) && isNonNullObject(expectedArray[i])) {
+      //   isEqual = eqObjects(item, expectedArray[i]);
       } else {
         isEqual = item === expectedArray[i];
       }
@@ -31,16 +33,6 @@ const eqArrays = function(actualArray, expectedArray) {
         break;
       }
     }
-    // loop won't run for empty array b/c length is 0
-    // for (let i = 0; i < actualArray.length; ++i) {
-    //   if (Array.isArray(actualArray) && Array.isArray(expectedArray)) {
-        
-    //   }
-    //   if (actualArray[i] !== expectedArray[i]) {
-    //     isEqual = false;
-    //     break;
-    //   }
-    // }
   }
   return isEqual;
 };
@@ -60,3 +52,5 @@ exports.eqArrays = eqArrays;
 // assertEqual(eqArrays(['e'], []), false);
 
 assertEqual(eqArrays([1, [1]], [1, [1]]), true);
+assertEqual(eqArrays([1, [1, [2, '3']]], [1, [1, [2, '3']]]), true);
+assertEqual(eqArrays([1, [1, {a: 2, b: '3'}]], [1, [1, {a: 2, b: '3'}]]), true); // fails because we can handle objects
