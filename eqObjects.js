@@ -142,4 +142,5 @@ assertEqual(eqObjects(nestedObject1, nestedObject2), false); //different key
 assertEqual(eqObjects(nestedObject1, nestedObject3), true); // match
 assertEqual(eqObjects(nestedObject1, nestedObject4), false); //nestedObjects4 has array instead of number value
 assertEqual(eqObjects(nestedObject4, nestedObject5), true); //array in array in object match
-assertEqual(eqObjects(objInArray1, objInArray2), true); //obj in array in object match
+//can't handle this right now
+assertEqual(eqObjects(objInArray1, objInArray2), true); //obj in array in object
