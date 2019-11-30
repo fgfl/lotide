@@ -20,7 +20,7 @@ const eqArrays = function(actualArray, expectedArray) {
     isEqual = false;
   } else {
     for ([i, item] of actualArray.entries()) {
-      if (Array.isArray(item)) {
+      if (Array.isArray(item) && Array.isArray(expectedArray[i])) {
         isEqual = eqArrays(item, expectedArray[i]);
       // DO NOT CHECK FOR OBJECT RIGHT NOW. LET IT FAIL
       // } else if (isNonNullObject(item) && isNonNullObject(expectedArray[i])) {
@@ -41,6 +41,7 @@ exports.isNonNullObject = isNonNullObject;
 exports.eqArrays = eqArrays;
 
 // TEST CASES
+console.log('== eqArray TESTS ==');
 // assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
 // assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
 
