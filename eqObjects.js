@@ -65,16 +65,24 @@ const eqObjects = function(object1, object2) {
   const obj1KeyVals = Object.entries(object1);
   const obj2KeyVals = Object.entries(object2);
 
+  // lengths differ. Must not be the same.
   if (obj1KeyVals.length !== obj2KeyVals.length) {
     return false;
   }
 
   for (const [obj1Key, obj1Value] of obj1KeyVals) {
     if (Array.isArray(obj1Value) && Array.isArray(object2[obj1Key])) {
+      // check only if both are arrays. If both are not arrays, then last else if will catch
       if (!eqArrays(obj1Value, object2[obj1Key])) {
         isEqual = false;
         break;
       }
+    } else if (typeof obj1Value === 'object' && typeof object2[obj1Key] === 'object') {
+      //if both are objects other than arrays, then check if they are equal
+        if (!eqObjects(obj1Value, object2[obj1Key])) {
+          isEqual = false;
+          break;
+        }
     } else if (obj1Value !== object2[obj1Key]) {
       isEqual = false;
       break;
