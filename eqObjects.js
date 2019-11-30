@@ -106,3 +106,8 @@ const cd3 = {c: '1', d: 2};
 assertEqual(eqObjects(cd, cd3), false);
 const cd4 = {c: 1, d: 2};
 assertEqual(eqObjects(cd4, cd3), false);
+
+// objects in objects
+assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
