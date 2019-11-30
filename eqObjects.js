@@ -2,61 +2,8 @@
   Frederick Lee
 */
 
-const assertEqual = function(actual, expected) {
-  let assertMsg = '';
-  let actualStr;
-  let expectedStr;
-  let isEqual;
-
-  // Enclosed the string with the appropriate wrappers "" or []
-  const makeEnclosedString = function(string) {
-    let output = '';
-    switch (typeof string) {
-    case 'string':
-      output = `"${string}"`;
-      break;
-    default:
-      if (Array.isArray(string)) {
-        output = `[${string}]`;
-      } else {
-        output = string;
-      }
-    }
-    return output;
-  };
-
-  actualStr = makeEnclosedString(actual);
-  expectedStr = makeEnclosedString(expected);
-
-  if (actual === expected) {
-    assertMsg = `✔️ ✔️ ✔️ Assertion Passed: ${actualStr} === ${expectedStr}`;
-    isEqual = true;
-  } else {
-    assertMsg = `❌️❌️❌️Assertion Failed: ${actualStr} === ${expectedStr}`;
-    isEqual = false;
-  }
-  console.log(assertMsg);
-  return isEqual;
-};
-
-// checks if two arrays are the same.
-// return: true if same. false otherwise
-const eqArrays = function(actualArray, expectedArray) {
-  let isEqual = true;
-
-  if (actualArray.length !== expectedArray.length) {
-    isEqual = false;
-  } else {
-    // loop won't run for empty array b/c length is 0
-    for (let i = 0; i < actualArray.length; ++i) {
-      if (actualArray[i] !== expectedArray[i]) {
-        isEqual = false;
-        break;
-      }
-    }
-  }
-  return isEqual;
-};
+const {assertEqual} = require('./assertEqual');
+const {eqArrays} = require('./eqArrays');
 
 // does not handle objects inside objects right now
 // returns true if both object1 and object2 are equal
@@ -83,6 +30,7 @@ const eqObjects = function(object1, object2) {
           isEqual = false;
           break;
         }
+        // return eqObjects(obj1Value, object2[obj1Key]);
     } else if (obj1Value !== object2[obj1Key]) {
       isEqual = false;
       break;
@@ -115,7 +63,54 @@ assertEqual(eqObjects(cd, cd3), false);
 const cd4 = {c: 1, d: 2};
 assertEqual(eqObjects(cd4, cd3), false);
 
+const nestedObject1 = {
+  a: {y: 0, z: 1},
+  b: {
+    v: 5,
+    w: {
+      s: 15,
+      t: 16
+    }
+  }
+};
+
+const nestedObject2 = {
+  a: {y: 0, z: 1},
+  b: {
+    v: 5,
+    w: {
+      s: 15,
+      different: 16
+    }
+  }
+};
+
+const nestedObject3 = {
+  a: {y: 0, z: 1},
+  b: {
+    v: 5,
+    w: {
+      s: 15,
+      t: 16
+    }
+  }
+};
+
+const nestedObject4 = {
+  a: {y: 0, z: 1},
+  b: {
+    v: 5,
+    w: {
+      s: 15,
+      t: 16
+    }
+  },
+  c: 15
+};
 // objects in objects
 assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
 assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
 assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
+assertEqual(eqObjects(nestedObject1, nestedObject2), false);
+assertEqual(eqObjects(nestedObject1, nestedObject3), true);
+assertEqual(eqObjects(nestedObject1, nestedObject4), false);
