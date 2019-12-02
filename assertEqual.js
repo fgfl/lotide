@@ -8,25 +8,8 @@ const assertEqual = function(actual, expected) {
   let expectedStr;
   let isEqual;
 
-  // Enclosed the string with the appropriate wrappers "" or []
-  const makeEnclosedString = function(string) {
-    let output = '';
-    switch (typeof string) {
-    case 'string':
-      output = `"${string}"`;
-      break;
-    default:
-      if (Array.isArray(string)) {
-        output = `[${string}]`;
-      } else {
-        output = string;
-      }
-    }
-    return output;
-  };
-
-  actualStr = makeEnclosedString(actual);
-  expectedStr = makeEnclosedString(expected);
+  acutalStr = JSON.stringify(actual);
+  expectedStr = JSON.stringify(expected);
 
   if (actual === expected) {
     assertMsg = `✔️ ✔️ ✔️ Assertion Passed: ${actualStr} === ${expectedStr}`;

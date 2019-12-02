@@ -2,30 +2,12 @@
   Frederick Lee
 */
 
-// checks if two arrays are the same.
-// return: true if same. false otherwise
-const eqArrays = function(actualArray, expectedArray) {
-  let isEqual = true;
-
-  if (actualArray.length !== expectedArray.length) {
-    isEqual = false;
-  } else {
-    // loop won't run for empty array b/c length is 0
-    for (let i = 0; i < actualArray.length; ++i) {
-      if (actualArray[i] !== expectedArray[i]) {
-        isEqual = false;
-        break;
-      }
-    }
-  }
-  return isEqual;
-};
-
+const eqArrays = require('./eqArrays').eqArrays;
 
 const assertArraysEqual = function(actual, expected) {
   let assertMsg = '';
-  let actualStr = `[${actual}]`;
-  let expectedStr = `[${expected}]`;
+  let actualStr = `${JSON.stringify(actual)}`;
+  let expectedStr = `${JSON.stringify(expected)}`;
   let isEqual;
 
   if (eqArrays(actual, expected)) {
