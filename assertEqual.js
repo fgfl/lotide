@@ -4,12 +4,9 @@
 
 const assertEqual = function(actual, expected) {
   let assertMsg = '';
-  let actualStr;
-  let expectedStr;
+  let actualStr = JSON.stringify(actual);
+  let expectedStr = JSON.stringify(expected);
   let isEqual;
-
-  actualStr = JSON.stringify(actual);
-  expectedStr = JSON.stringify(expected);
 
   if (actual === expected) {
     assertMsg = `✔️ ✔️ ✔️ Assertion Passed: ${actualStr} === ${expectedStr}`;
