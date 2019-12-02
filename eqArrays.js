@@ -2,7 +2,8 @@
   Frederick Lee
 
 */
-const {eqObjects, isNonNullObject} = require('./eqObjects');
+// const {eqObjects, isNonNullObject} = require('./eqObjects');
+// console.log(eqObjects, isNonNullObject);
 
 // checks if two arrays are the same.
 // return: true if same. false otherwise
@@ -16,6 +17,7 @@ const eqArrays = function(actualArray, expectedArray) {
       if (Array.isArray(item) && Array.isArray(expectedArray[i])) {
         isEqual = eqArrays(item, expectedArray[i]);
       // } else if (isNonNullObject(item) && isNonNullObject(expectedArray[i])) {
+      //   console.log('insdie objec t check');
       //   isEqual = eqObjects(item, expectedArray[i]);
       } else {
         isEqual = item === expectedArray[i];
