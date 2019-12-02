@@ -2,8 +2,14 @@
   Frederick Lee
 */
 
-const {assertEqual} = require('./assertEqual');
-const {eqArrays, isNonNullObject} = require('./eqArrays');
+const assertEqual = require('./assertEqual');
+const eqArrays = require('./eqArrays');
+
+// checks if the variable is an non-null object or not
+// returns: true if it's an non-null object
+const isNonNullObject = object => {
+  return (typeof object === 'object') && (object !== null);
+};
 
 // returns true if both object1 and object2 are equal
 const eqObjects = function(object1, object2) {
@@ -33,6 +39,12 @@ const eqObjects = function(object1, object2) {
   }
   return isEqual;
 };
+
+module.exports = {
+  eqObjects: eqObjects,
+  isNonNullObject: isNonNullObject
+}
+
 
 // TEST CASES
 console.log('== eqObjects TESTS ==');

@@ -2,7 +2,7 @@
   Frederick Lee
 */
 
-const eqArrays = require('./eqArrays').eqArrays;
+const eqArrays = require('./eqArrays');
 
 const assertArraysEqual = function(actual, expected) {
   let assertMsg = '';

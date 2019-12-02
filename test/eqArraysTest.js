@@ -3,8 +3,7 @@
 */
 
 const assertEqual = require('../assertEqual');
-const eqArraysFile = require('../eqArrays');
-const eqArrays = eqArraysFile.eqArrays;
+const eqArrays = require('../eqArrays');
 
 // TEST CASES
 console.log('== eqArray TESTS ==');

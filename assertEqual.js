@@ -8,7 +8,7 @@ const assertEqual = function(actual, expected) {
   let expectedStr;
   let isEqual;
 
-  acutalStr = JSON.stringify(actual);
+  actualStr = JSON.stringify(actual);
   expectedStr = JSON.stringify(expected);
 
   if (actual === expected) {
