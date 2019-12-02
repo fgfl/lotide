@@ -39,7 +39,4 @@ const assertArraysEqual = function(actual, expected) {
   return isEqual;
 };
 
-// TEST CASES
-assertArraysEqual([1, 2, 3], [1, 2, 3]);
-assertArraysEqual([], []);
-assertArraysEqual(['1', 2, 3], [1, 2, 3]);
+module.exports = assertArraysEqual;
