@@ -2,7 +2,6 @@
   Frederick Lee
 */
 
-const assertEqual = require('./assertEqual');
 const eqArrays = require('./eqArrays');
 
 // checks if the variable is an non-null object or not
@@ -44,4 +43,3 @@ module.exports = {
   eqObjects: eqObjects,
   isNonNullObject: isNonNullObject
 }
-
