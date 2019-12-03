@@ -27,7 +27,7 @@ This project was created and published by me as part of my learnings at Lighthou
 The following functions are currently implemented:
 
 * **`countLetters(str)`**: Returns the number of letters in string `str`. Spaces are not counted. Returns an empty object if an empty string is passed in.
-* **`countOnly(allItems, itemsToCount)`**: Counts the number of times and the items in `itemsToCount` are found in `allItems`. The results are returned in an object where the keys are the elements in `itemsToCount` and the values are the counts. If the item is not found in `allItems`, the item is not added to the return object. 
+* **`countOnly(allItems, itemsToCount)`**: Counts the number of times and the items in `itemsToCount` are found in `allItems`. `itemsToCount` is and object where the key is the item and the value is a boolean specifying whether to count the item. The results are returned in an object where the keys are the elements in `itemsToCount` and the values are the counts. If the item is not found in `allItems`, the item is not added to the return object. 
 * **`eqArray(array1, array2)`**: Checks if two arrays are equal. Returns true is yes and false if no.
 * **`eqObjects(object1, object 2)`**: Checks if two objects are equal. Returns `true` is yes and `false` if no. 
 * **`head(array)`**: Returns the first element of an array. It does not check if the array is valid.
