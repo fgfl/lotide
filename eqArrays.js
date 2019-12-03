@@ -7,20 +7,20 @@
 
 // checks if two arrays are the same.
 // return: true if same. false otherwise
-const eqArrays = function(actualArray, expectedArray) {
+const eqArrays = function(array1, array2) {
   let isEqual = true;
 
-  if (actualArray.length !== expectedArray.length) {
+  if (array1.length !== array2.length) {
     isEqual = false;
   } else {
-    for ([i, item] of actualArray.entries()) {
-      if (Array.isArray(item) && Array.isArray(expectedArray[i])) {
-        isEqual = eqArrays(item, expectedArray[i]);
+    for ([i, item] of array1.entries()) {
+      if (Array.isArray(item) && Array.isArray(array2[i])) {
+        isEqual = eqArrays(item, array2[i]);
       // } else if (isNonNullObject(item) && isNonNullObject(expectedArray[i])) {
       //   console.log('insdie objec t check');
       //   isEqual = eqObjects(item, expectedArray[i]);
       } else {
-        isEqual = item === expectedArray[i];
+        isEqual = item === array2[i];
       }
       
       if (!isEqual) {
