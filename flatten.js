@@ -10,7 +10,7 @@ const flatten = function(array) {
   
   array.forEach(elm => {
     if (Array.isArray(elm)) {
-      elm.forEach(innerElm => {
+      flatten(elm).forEach(innerElm => {
         flatArray.push(innerElm);
       });
     } else {

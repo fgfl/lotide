@@ -20,4 +20,7 @@ describe("#flatten()", () => {
   it("should return ['one', 'two', 'three', 4, 6, 7] from ['one', 'two', ['three', 4, 6, 7]]", () => {
     assert.deepEqual(flatten(['one', 'two', ['three', 4, 6, 7]]), ['one', 'two', 'three', 4, 6, 7]);
   });
+  it("should return [1] from [[[[1]]]]",() => {
+    assert.deepEqual(flatten([[[[1]]]]), [1]);
+  });
 });
