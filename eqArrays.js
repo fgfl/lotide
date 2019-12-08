@@ -3,10 +3,7 @@
 
 
 */
-// const {eqObjects, isNonNullObject} = require('./eqObjects');
-
 const {eqObjects} = require('./eqObjects');
-console.log('in eqArray:', eqObjects);
 
 /**
  * Does a deep compare of two arrays.

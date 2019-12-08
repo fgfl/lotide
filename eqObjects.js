@@ -2,9 +2,6 @@
   Frederick Lee
 */
 
-// const eqArrays = require('./eqArrays');
-// const {eqArrays} = require('./internal');
-// console.log('top of eqObject: eqArray is', eqArrays);
 
 // checks if the variable is an non-null object or not
 // returns: true if it's an non-null object

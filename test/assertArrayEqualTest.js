@@ -6,9 +6,6 @@ const chai = require('chai');
 const assert = chai. assert;
 const {assertArraysEqual} = require('../internal');
 
-// console.log(require.cache);
-debugger
-
 // TEST CASES
 describe('#assertArrayEqual()', () => {
   it('should return true for assertArraysEqual([1, 2, 3], [1, 2, 3]);', () => {
