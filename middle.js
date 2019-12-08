@@ -12,7 +12,6 @@
   - For arrays with an even number of elements, an array containing the two elements in the middle should be returned
 */
 
-const assertArraysEqual = require('./assertArraysEqual');
 
 const middle = function(array) {
   let middleArray = [];

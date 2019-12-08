@@ -4,7 +4,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const letterPositions = require('../letterPositions');
+const {letterPositions} = require('../internal');
 
 describe("#letterPositions()", () => {
   it("should return the proper indices for 'lighthouse in the house'", () => {

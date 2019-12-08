@@ -3,7 +3,6 @@
 */
 
 const assertEqual = function(actual, expected) {
-  let assertMsg = '';
   let actualStr = JSON.stringify(actual);
   let expectedStr = JSON.stringify(expected);
   let isEqual;

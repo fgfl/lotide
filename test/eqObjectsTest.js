@@ -4,13 +4,15 @@
 
 const assert = require('chai').assert;
 
-const {eqObjects} = require('../eqObjects');
+const {eqObjects} = require('../internal');
 
 // TEST CASES
 describe("#eqObjects()", () => {
   // primatives
   it("should return true if the keys are not in the same order", () => {
     const ab = {a: '1', b: '2'};
+
+
     const ba = {b: '2', a: '1'};
     assert.equal(eqObjects(ab, ba), true);
   });

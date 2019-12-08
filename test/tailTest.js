@@ -5,7 +5,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const tail = require('../tail');
+const {tail} = require('../internal');
 
 // Test Case: Check the original array
 describe('#tail()', () => {

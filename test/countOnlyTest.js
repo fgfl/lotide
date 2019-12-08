@@ -4,7 +4,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const countOnly = require('../countOnly');
+const {countOnly} = require('../internal');
 
 // TEST CODE
 describe('#countOnly()', () => {

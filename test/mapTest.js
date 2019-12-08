@@ -5,7 +5,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const map = require('../map');
+const {map} = require('../internal');
 
 describe("#map()", () => {
   it("should return the first letter of each word", () => {

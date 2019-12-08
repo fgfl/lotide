@@ -2,50 +2,7 @@
   Frederick Lee
 */
 
-// checks if two arrays are the same.
-// return: true if same. false otherwise
-const eqArrays = function(actualArray, expectedArray) {
-  let isEqual = true;
-
-  if (actualArray.length !== expectedArray.length) {
-    isEqual = false;
-  } else {
-    // loop won't run for empty array b/c length is 0
-    for (let i = 0; i < actualArray.length; ++i) {
-      if (actualArray[i] !== expectedArray[i]) {
-        isEqual = false;
-        break;
-      }
-    }
-  }
-  return isEqual;
-};
-
-// does not handle objects inside objects right now
-// returns true if both object1 and object2 are equal
-const eqObjects = function(object1, object2) {
-  let isEqual = true;
-  const obj1KeyVals = Object.entries(object1);
-  const obj2KeyVals = Object.entries(object2);
-
-  if (obj1KeyVals.length !== obj2KeyVals.length) {
-    return false;
-  }
-
-  for (const [obj1Key, obj1Value] of obj1KeyVals) {
-    if (Array.isArray(obj1Value) && Array.isArray(object2[obj1Key])) {
-      if (!eqArrays(obj1Value, object2[obj1Key])) {
-        isEqual = false;
-        break;
-      }
-    } else if (obj1Value !== object2[obj1Key]) {
-      isEqual = false;
-      break;
-    }
-  }
-
-  return isEqual;
-};
+const { eqObjects } = require('./internal');
 
 // checks if two objects are the same. Console.logs the pass/fail message.
 const assertObjectsEqual = function(actual, expected) {

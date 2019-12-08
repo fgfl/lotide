@@ -5,7 +5,7 @@
 const chai = require('chai')
 const assert = chai.assert;
 
-const assertEqual = require('../assertEqual');
+const {assertEqual} = require('../internal');
 
 describe('#assertEqual()', () => {
   it(`should return false for assertEqual('Lighthouse Labs', 'Bootcamp')'`, () => {

@@ -4,7 +4,7 @@
 
 const chai = require('chai');
 const assert = chai.assert;
-const takeUntil = require('../takeUntil');
+const {takeUntil} = require('../internal');
 
 describe("#takeUntil()", () => {
   it("should work on number. Stop when we hit a negative number.", () => {

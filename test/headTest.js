@@ -2,7 +2,7 @@
   Frederick Lee
 */
 
-const head = require('../head');
+const {head} = require('../internal');
 
 const assert = require('chai').assert;
 

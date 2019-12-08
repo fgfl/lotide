@@ -5,7 +5,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const findKeyByValue = require('../findKeyByValue');
+const {findKeyByValue} = require('../internal');
 
 // TEST CASES
 describe("#findKeyByValue()", () => {

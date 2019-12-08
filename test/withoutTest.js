@@ -5,7 +5,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const without = require('../without');
+const {without} = require('../internal');
 
 describe("#without()", () => {
   it("should not change the original array", () => {

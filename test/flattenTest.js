@@ -5,7 +5,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const flatten = require('../flatten');
+const {flatten} = require('../internal');
 
 describe("#flatten()", () => {
   it("should return [1, 2, 3, 4, 5, 6] from [1, 2, [3, 4], 5, [6]]", () => {

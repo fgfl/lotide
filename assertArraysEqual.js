@@ -2,13 +2,15 @@
   Frederick Lee
 */
 
-const eqArrays = require('./eqArrays');
+const {eqArrays} = require('./eqArrays');
+console.log(eqArrays)
 
 const assertArraysEqual = function(actual, expected) {
-  let assertMsg = '';
   let actualStr = `${JSON.stringify(actual)}`;
   let expectedStr = `${JSON.stringify(expected)}`;
   let isEqual;
+
+  debugger
 
   if (eqArrays(actual, expected)) {
     assertMsg = `✔️ ✔️ ✔️ Assertion Passed: ${actualStr} === ${expectedStr}`;

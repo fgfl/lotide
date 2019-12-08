@@ -4,7 +4,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const findKey = require('../findKey');
+const {findKey} = require('../internal');
 
 describe("#findKey()", () => {
   it("should return noma when we search for hotels with 2 stars", () => {

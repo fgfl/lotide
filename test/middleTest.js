@@ -5,7 +5,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const middle = require('../middle');
+const {middle} = require('../internal');
 
 // TEST CASES
 describe('#middle()', () => {

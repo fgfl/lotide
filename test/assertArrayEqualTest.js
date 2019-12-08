@@ -4,7 +4,10 @@
 
 const chai = require('chai');
 const assert = chai. assert;
-const assertArraysEqual = require('../assertArraysEqual');
+const {assertArraysEqual} = require('../internal');
+
+// console.log(require.cache);
+debugger
 
 // TEST CASES
 describe('#assertArrayEqual()', () => {

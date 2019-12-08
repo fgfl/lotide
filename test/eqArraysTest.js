@@ -5,7 +5,8 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const eqArrays = require('../eqArrays');
+const {eqArrays} = require('../internal');
+console.log(eqArrays);
 
 // TEST CASES
 describe("#eqArrays()", () => {

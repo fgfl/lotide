@@ -5,7 +5,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const countLetters = require('../countLetters');
+const {countLetters} = require('../internal');
 
 // TEST CODE
 describe("#countLetters()", () => {
